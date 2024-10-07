@@ -1,23 +1,27 @@
+import React from "react";
 import axios from "axios";
 import { useFormik } from "formik";
-import { useState } from "react";
 import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import { Container, Box } from "@mui/material";
+import "./UserLogin.css"; // Import external CSS
 
 export function UserLogin() {
-  const [cookies, setCookies, removeCookie] = useCookies(["userid"]);
-
+  const [cookies, setCookies] = useCookies(["userid"]);
   let navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
       UserId: "",
-      UserName: "",
       Password: "",
     },
     onSubmit: (user) => {
       axios.get(`http://127.0.0.1:5000/users`).then((response) => {
-        var result = response.data.find((item) => item.UserId === user.UserId);
+        const result = response.data.find(
+          (item) => item.UserId === user.UserId
+        );
         if (result) {
           if (user.Password === result.Password) {
             setCookies("userid", user.UserId);
@@ -33,28 +37,41 @@ export function UserLogin() {
   });
 
   return (
-    <div>
+    <Container maxWidth="sm" className="login-container">
       <form onSubmit={formik.handleSubmit}>
         <h3>User Login</h3>
         <dl>
           <dt>UserId</dt>
           <dd>
-            <input type="text" onChange={formik.handleChange} name="UserId" />
+            <TextField
+              fullWidth
+              variant="outlined"
+              name="UserId"
+              onChange={formik.handleChange}
+              value={formik.values.UserId}
+              label="Enter your User ID"
+              margin="normal"
+            />
           </dd>
           <dt>Password</dt>
           <dd>
-            <input
+            <TextField
+              fullWidth
               type="password"
-              onChange={formik.handleChange}
+              variant="outlined"
               name="Password"
+              onChange={formik.handleChange}
+              value={formik.values.Password}
+              label="Enter your Password"
+              margin="normal"
             />
           </dd>
         </dl>
-        <button type="submit" className="btn btn-warning">
+        <Button type="submit" variant="contained" fullWidth>
           Login
-        </button>
+        </Button>
       </form>
       <Link to="/user-register">New User Register</Link>
-    </div>
+    </Container>
   );
 }

@@ -1,0 +1,12 @@
+.container {
+  margin-top: 20px;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+}
+
+button {
+  margin-right: 10px;
+}

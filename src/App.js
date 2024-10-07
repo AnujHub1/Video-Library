@@ -1,14 +1,13 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import VideoLibraryIndex from "./component/VideoLibraryIndex";
-import AdminLogin from "./component/AdminLogin";
-import AdminDash from "./component/AdminDash";
-import Addvideo from "./component/Addvideo";
-import DeleteVideo from "./component/DeleteVideo";
-import EditVideo from "./component/EditVideo";
-import { UserLogin } from "./component/UserLogin";
-import { UserDashboard } from "./component/UserDash";
+import VideoLibraryIndex from "./component/VideoLibrary/VideoLibraryIndex";
+import AdminLogin from "./component/AdminLogin/AdminLogin";
+import AdminDash from "./component/AdminDash/AdminDash";
+import Addvideo from "./component/AddVideo/Addvideo";
+import DeleteVideo from "./component/Delete/DeleteVideo";
+import EditVideo from "./component/Edit/EditVideo";
+import { UserLogin } from "./component/UserLogin/UserLogin";
+import { UserDashboard } from "./component/UserDash/UserDash";
 
 function App() {
   return (

@@ -1,0 +1,34 @@
+.admin-dash-container {
+  padding: 20px;
+}
+
+.add-video-btn {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.video-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bi {
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .video-actions {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

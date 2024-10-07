@@ -42,11 +42,18 @@ export default function DeleteVideo() {
   return (
     <div>
       <h3>Delete video</h3>
-      <div className="card" style={{ height: "300px", width: "400px" }}>
+      <div
+        className="card border border-2"
+        style={{ height: "300px", width: "400px" }}
+      >
         <div className="card-image">
-          <iframe src={videos[0].Url} alt="" />
+          <iframe
+            src={videos[0].Url}
+            alt=""
+            style={{ height: "290px", width: "390px" }}
+          />
         </div>
-        <div className="card-header">{videos[0].Title}</div>
+        <div className="card-header fs-5 fw-bold">{videos[0].Title}</div>
         <div className="card-footer">
           <Link className="btn btn-danger m-2" onClick={handleDeleteClick}>
             Delete
