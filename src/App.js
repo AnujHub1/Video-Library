@@ -8,6 +8,7 @@ import DeleteVideo from "./component/Delete/DeleteVideo";
 import EditVideo from "./component/Edit/EditVideo";
 import { UserLogin } from "./component/UserLogin/UserLogin";
 import { UserDashboard } from "./component/UserDash/UserDash";
+import { UserRegister } from "./component/UserRegister/User-Register";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <section>
           <Routes>
             <Route path="/" element={<VideoLibraryIndex />} />
+            <Route path="/user-register" element={<UserRegister />} />
             <Route path="admin-login" element={<AdminLogin />} />
             <Route path="admin-dash" element={<AdminDash />} />
             <Route path="add-video" element={<Addvideo />} />
