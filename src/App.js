@@ -9,13 +9,14 @@ import EditVideo from "./component/Edit/EditVideo";
 import { UserLogin } from "./component/UserLogin/UserLogin";
 import { UserDashboard } from "./component/UserDash/UserDash";
 import { UserRegister } from "./component/UserRegister/User-Register";
+import Navbar from "./component/Navbar/Navbar";
 
 function App() {
   return (
     <div className="container-fluid">
       <BrowserRouter>
-        <header className="bg-dark text-white p-2 text-center">
-          <h2>Video Library</h2>
+        <header className="">
+          <Navbar />
         </header>
 
         <section>

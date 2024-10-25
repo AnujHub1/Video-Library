@@ -3,10 +3,7 @@ import axios from "axios";
 import { useFormik } from "formik";
 import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import { Container, Box } from "@mui/material";
-import "./UserLogin.css"; // Import external CSS
+import "./UserLogin.css"; // You can still keep your external CSS for specific styling
 
 export function UserLogin() {
   const [cookies, setCookies] = useCookies(["userid"]);
@@ -37,41 +34,72 @@ export function UserLogin() {
   });
 
   return (
-    <Container maxWidth="sm" className="login-container">
-      <form onSubmit={formik.handleSubmit}>
-        <h3>User Login</h3>
-        <dl>
-          <dt>UserId</dt>
-          <dd>
-            <TextField
-              fullWidth
-              variant="outlined"
+    <div className="min-h-screen flex items-center justify-center ">
+      <div className="bg-white shadow-xl rounded-lg p-8 w-full max-w-md">
+        <h3 className="text-2xl font-bold text-center mb-6 text-gray-800">
+          User Login
+        </h3>
+        <form onSubmit={formik.handleSubmit} className="space-y-4">
+          {/* UserId Field */}
+          <div>
+            <label
+              htmlFor="UserId"
+              className="block text-sm font-medium text-gray-700"
+            >
+              User ID
+            </label>
+            <input
+              type="text"
               name="UserId"
               onChange={formik.handleChange}
               value={formik.values.UserId}
-              label="Enter your User ID"
-              margin="normal"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Enter your User ID"
             />
-          </dd>
-          <dt>Password</dt>
-          <dd>
-            <TextField
-              fullWidth
+          </div>
+
+          {/* Password Field */}
+          <div>
+            <label
+              htmlFor="Password"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Password
+            </label>
+            <input
               type="password"
-              variant="outlined"
               name="Password"
               onChange={formik.handleChange}
               value={formik.values.Password}
-              label="Enter your Password"
-              margin="normal"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Enter your Password"
             />
-          </dd>
-        </dl>
-        <Button type="submit" variant="contained" fullWidth>
-          Login
-        </Button>
-      </form>
-      <Link to="/user-register">New User Register</Link>
-    </Container>
+          </div>
+
+          {/* Login Button */}
+          <div>
+            <button
+              type="submit"
+              className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300 ease-in-out"
+            >
+              Login
+            </button>
+          </div>
+
+          {/* Link to Register */}
+          <div className="text-center mt-4">
+            <p className="text-gray-600">
+              New User?{" "}
+              <Link
+                to="/user-register"
+                className="text-indigo-600 hover:underline"
+              >
+                Register here
+              </Link>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
