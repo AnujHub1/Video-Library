@@ -13,8 +13,8 @@ export default function AdminLogin() {
 
   const formik = useFormik({
     initialValues: {
-      UserId: "",
-      Password: "",
+      UserId: "John", // Set default username
+      Password: "John@123", // Set default password
     },
     onSubmit: (admin) => {
       axios.get(`http://127.0.0.1:5000/admin`).then((response) => {

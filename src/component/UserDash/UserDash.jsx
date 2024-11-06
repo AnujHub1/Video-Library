@@ -17,6 +17,7 @@ export function UserDashboard() {
   function LoadVideos() {
     axios.get(`http://127.0.0.1:5000/videos`).then((response) => {
       setVideos(response.data);
+      console.log(cookies);
     });
   }
 
@@ -35,7 +36,7 @@ export function UserDashboard() {
     <Container maxWidth="lg" className="dashboard-container">
       <div className="dashboard-header">
         <Typography variant="h4">User Dashboard</Typography>
-        <Typography variant="h6">{cookies["userid"]}</Typography>
+        <Typography variant="h6"></Typography>
         <Button variant="contained" color="error" onClick={handleSignout}>
           Signout
         </Button>

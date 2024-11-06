@@ -11,13 +11,13 @@ export function UserLogin() {
 
   const formik = useFormik({
     initialValues: {
-      UserId: "",
-      Password: "",
+      UserName: "david",
+      Password: "david@123",
     },
     onSubmit: (user) => {
       axios.get(`http://127.0.0.1:5000/users`).then((response) => {
         const result = response.data.find(
-          (item) => item.UserId === user.UserId
+          (item) => item.UserName === user.UserName
         );
         if (result) {
           if (user.Password === result.Password) {
@@ -50,9 +50,9 @@ export function UserLogin() {
             </label>
             <input
               type="text"
-              name="UserId"
+              name="UserName"
               onChange={formik.handleChange}
-              value={formik.values.UserId}
+              value={formik.values.UserName}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               placeholder="Enter your User ID"
             />
