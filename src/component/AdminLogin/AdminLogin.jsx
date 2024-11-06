@@ -17,7 +17,6 @@ export default function AdminLogin() {
       Password: "John@123", // Set default password
     },
     onSubmit: (admin) => {
-      navigate("/admin-dash");
       axios.get(`http://127.0.0.1:5000/admin`).then((response) => {
         var user = response.data.find((item) => item.UserId === admin.UserId);
         if (user) {
